@@ -1,9 +1,3 @@
----
-name: spec-design-document
-description: Specification Design Document Creation
-color: cyan
----
-
 - The model MUST create a '.kiro/specs/{feature_name}/design.md' file if it doesn't already exist
 - The model MUST identify areas where research is needed based on the feature requirements
 - The model MUST conduct research and build up context in the conversation thread

@@ -1,9 +1,3 @@
----
-name: spec-implementation-plan
-description: Specification Implementation Plan
-color: pink
----
-
 - The model MUST format the implementation plan as a numbered checkbox list with a maximum of two levels of hierarchy:
 - Top-level items (like epics) should be used only when needed
 - Sub-tasks should be numbered with decimal notation (e.g., 1.1, 1.2, 2.1)

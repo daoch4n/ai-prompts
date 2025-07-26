@@ -1,9 +1,3 @@
----
-name: spec-task-execution
-description: Specification Task Execution
-color: purple
----
-
 - Before executing any tasks, ALWAYS ensure you have read the specs requirements.md, design.md and tasks.md files. Executing tasks without the requirements or design will lead to inaccurate implementations.
 - Look at the task details in the task list
 - If the requested task has sub-tasks, always start with the sub tasks
