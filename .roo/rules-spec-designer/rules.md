@@ -1,4 +1,5 @@
-- The model MUST create a '.kiro/specs/{feature_name}/design.md' file if it doesn't already exist
+- The model MUST read a '.roo/specs/{feature_name}/requirements.md' file
+- The model MUST transform in into a '.roo/specs/{feature_name}/design.md' file following the established procedure below:
 - The model MUST identify areas where research is needed based on the feature requirements
 - The model MUST conduct research and build up context in the conversation thread
 - The model SHOULD NOT create separate research files, but instead use the research as context for the design and implementation plan

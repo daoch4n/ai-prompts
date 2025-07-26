@@ -1,4 +1,4 @@
-- The model MUST create a '.kiro/specs/{feature_name}/requirements.md' file if it doesn't already exist
+- The model MUST create a '.roo/specs/{feature_name}/requirements.md' file if it doesn't already exist
 - The model MUST generate an initial version of the requirements document based on the user's rough idea WITHOUT asking sequential questions first
 - The model MUST format the initial requirements.md document with:
   - A clear introduction section that summarizes the feature

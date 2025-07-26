@@ -1,3 +1,5 @@
+- The model MUST read a '.roo/specs/{feature_name}/design.md' file
+- The model MUST transform it into a '.roo/specs/{feature_name}/tasks.md' file if it doesn't already exist following the established procedure below:
 - The model MUST format the implementation plan as a numbered checkbox list with a maximum of two levels of hierarchy:
 - Top-level items (like epics) should be used only when needed
 - Sub-tasks should be numbered with decimal notation (e.g., 1.1, 1.2, 2.1)
