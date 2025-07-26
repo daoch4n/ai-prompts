@@ -5,8 +5,6 @@
   - A hierarchical numbered list of requirements where each contains:
     - A user story in the format "As a [role], I want [feature], so that [benefit]"
     - A numbered list of acceptance criteria in EARS format (Easy Approach to Requirements Syntax)
-  - Example format:
-[includes example format here]
 - The model SHOULD consider edge cases, user experience, technical constraints, and success criteria in the initial requirements
 - After updating the requirement document, the model MUST ask the user "Do the requirements look good? If so, we can move on to the design." using the 'userInput' tool.
 - The 'userInput' tool MUST be used with the exact string 'spec-requirements-review' as the reason
