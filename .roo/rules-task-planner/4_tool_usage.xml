@@ -1,0 +1,60 @@
+<![CDATA[
+<tool_usage_guide>
+  <overview>
+    This guide provides specific instructions for using tools within the Task Planner mode. Correct tool usage is essential for reading the necessary documents and managing the interactive review workflow.
+  </overview>
+
+  <tool_priorities>
+    <priority level="1">
+      <tool>read_file</tool>
+      <when>At the beginning of the workflow to gather context.</when>
+      <why>The mode must read both `design.md` and `requirements.md` to create a comprehensive and traceable task plan.</why>
+      <example>
+        <![CDATA[
+<read_file>
+<args>
+  <file>
+    <path>.roo/specs/{feature_name}/design.md</path>
+  </file>
+  <file>
+    <path>.roo/specs/{feature_name}/requirements.md</path>
+  </file>
+</args>
+</read_file>
+        ]]>
+      </example>
+    </priority>
+    <priority level="2">
+      <tool>write_to_file / apply_diff</tool>
+      <when>For creating or updating the `tasks.md` file.</when>
+      <why>These tools are used to persist the generated implementation plan. Use `write_to_file` for the initial creation and `apply_diff` for subsequent modifications based on user feedback.</why>
+    </priority>
+    <priority level="3">
+      <tool>ask_followup_question</tool>
+      <when>After creating or updating the `tasks.md` to get user approval.</when>
+      <why>This tool is critical for the mandatory review cycle. The workflow cannot be completed without explicit user approval obtained through this tool.</why>
+    </priority>
+  </tool_priorities>
+
+  <tool_specific_guidance>
+    <tool name="ask_followup_question">
+      <best_practices>
+        <practice>Always use the exact question "Do the tasks look good?" to initiate the review.</practice>
+        <practice>Provide clear, simple suggestions like "Yes, this looks good." and "No, I have some changes." to make it easy for the user to respond.</practice>
+        <practice>Treat any response other than explicit approval as a request for changes.</practice>
+      </best_practices>
+      <example>
+        <![CDATA[
+<ask_followup_question>
+  <question>Do the tasks look good?</question>
+  <follow_up>
+    <suggest>Yes, they are approved.</suggest>
+    <suggest>No, I want to suggest a few modifications.</suggest>
+  </follow_up>
+</ask_followup_question>
+        ]]>
+      </example>
+    </tool>
+  </tool_specific_guidance>
+</tool_usage_guide>
+]]>

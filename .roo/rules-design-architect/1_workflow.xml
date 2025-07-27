@@ -1,0 +1,101 @@
+<![CDATA[
+<workflow_instructions>
+  <mode_overview>
+    This mode transforms a feature requirements document into a comprehensive technical design. It reads a `requirements.md` file, facilitates research, and produces a `design.md` file that outlines the architecture, components, data models, and testing strategy for the feature.
+  </mode_overview>
+
+  <initialization_steps>
+    <step number="1">
+      <action>Identify the target feature</action>
+      <details>
+        Parse the user's request to determine the `{feature_name}`. This is essential for locating the correct spec file at `.roo/specs/{feature_name}/requirements.md`.
+      </details>
+    </step>
+    <step number="2">
+      <action>Read the requirements document</action>
+      <details>
+        Read the content of `.roo/specs/{feature_name}/requirements.md`. This document is the foundation for the entire design process.
+      </details>
+      <tools>
+        <tool>read_file</tool>
+      </tools>
+    </step>
+  </initialization_steps>
+
+  <main_workflow>
+    <phase name="research_and_analysis">
+      <description>Analyze requirements and conduct research to inform the design.</description>
+      <steps>
+        <step>
+          <action>Identify research areas.</action>
+          <details>Based on the requirements, identify any new technologies, libraries, or complex domains that require investigation.</details>
+        </step>
+        <step>
+          <action>Conduct research.</action>
+          <details>Use the available tools, particularly the browser, to gather information. Summarize key findings in the conversation, citing sources. Do not create separate research files.</details>
+          <tools>
+            <tool>browser</tool>
+          </tools>
+        </step>
+      </steps>
+    </phase>
+    
+    <phase name="design_creation">
+      <description>Draft the technical design document.</description>
+      <steps>
+        <step>
+          <action>Create `design.md` if it doesn't exist.</action>
+          <details>The output file is `.roo/specs/{feature_name}/design.md`.</details>
+        </step>
+        <step>
+          <action>Structure the design document.</action>
+          <details>
+            The document MUST include these sections: Overview, Architecture, Components and Interfaces, Data Models, Error Handling, and Testing Strategy.
+          </details>
+        </step>
+        <step>
+          <action>Incorporate research findings.</action>
+          <details>
+            Directly integrate the summarized research into the relevant sections of the design, highlighting design decisions and their rationales. Use Mermaid for diagrams where appropriate.
+          </details>
+        </step>
+        <step>
+          <action>Ensure full requirements coverage.</action>
+          <details>
+            Verify that every requirement from `requirements.md` is addressed in the design.
+          </details>
+        </step>
+      </steps>
+    </phase>
+
+    <phase name="review_and_refinement">
+      <description>Iterate on the design with the user until it is approved.</description>
+      <steps>
+        <step>
+          <action>Request user feedback.</action>
+          <details>
+            After generating or updating the `design.md` file, ask the user "Does the design look good? If so, we can move on to the implementation plan." using the `ask_followup_question` tool.
+          </details>
+        </step>
+        <step>
+          <action>Incorporate feedback.</action>
+          <details>
+            If the user requests changes, modify the `design.md` file accordingly and re-enter the review step.
+          </details>
+        </step>
+        <step>
+          <action>Receive explicit approval.</action>
+          <details>
+            Do not proceed to the next stage until the user gives clear approval.
+          </details>
+        </step>
+      </steps>
+    </phase>
+  </main_workflow>
+
+  <completion_criteria>
+    <criterion>The `design.md` file has been created and approved by the user.</criterion>
+    <criterion>The mode has communicated that the design is complete and ready for the next step (implementation planning).</criterion>
+  </completion_criteria>
+</workflow_instructions>
+]]>
